@@ -1,0 +1,32 @@
+<tool id="saint_wrapper" name="SAINT">
+  <description></description>
+  <command interpreter="python">saint_wrapper.py $inter_input $prey_input $bait_input $rep_num $vc_bool $vc_num $go_bool $go_file $output</command>
+  <inputs>
+    <param format="dat" name="inter_input" type="data" label="Interactions File"/>
+    <param format="dat" name="prey_input" type="data" label="Prey File"/>
+    <param format="dat" name="bait_input" type="data" label="Bait File"/>
+    <param name="rep_num" type="integer" value="100" label="Number of Replicates" help="The number of replicates (with largest spectral counts or intensities) to be used for probability calculation in each bait.  This option is useful when some baits have more replicates than others." />
+    <param type="boolean" name="vc_bool" checked="true" label="Using Virtual Control Purifications by Compression"/>
+    <param name="vc_num" type="integer" value="1" label="Number of Virtual Controls" />
+    <param type="boolean" name="go_bool" checked="true" label="Incorporate External Data Sources" />
+    <param format="dat" name="go_file" type="data" optional="true" label="External Data File" />
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <stdio>
+    <regex match="IOError"
+	   source="stderr"
+           level="fatal"
+           description="Unknown error"/>
+  </stdio> 
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+  <help>
+  </help>
+</tool>

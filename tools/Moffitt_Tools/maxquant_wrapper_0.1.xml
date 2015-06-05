@@ -1,0 +1,25 @@
+<tool id="maxquant_wrapper" name="MaxQuant">
+  <description></description>
+  <command interpreter="python">maxquant_wrapper_0.1.py $input_raw $input_fasta $bool1 $input_xml $folder_name $output</command>
+  <inputs>
+    <param format="raw" name="input_raw" type="data" multiple="true" label="RAW Files"/>
+    <param format="fasta" name="input_fasta" type="data" label="Fasta Database"/>
+    <param type="boolean" name="bool1" checked="true" label="Using XML Param File"/>
+    <param format="xml" name="input_xml" type="data" optional="true" label="XML Param File"/>
+    <param type="text" name="folder_name" label="Job Name" help="Please use only a-z, 0-9 and _. No spaces." /> 
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+
+  <help>
+  </help>
+
+</tool>

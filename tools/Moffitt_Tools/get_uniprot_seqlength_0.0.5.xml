@@ -1,0 +1,21 @@
+<tool id="get_uniprot_seqlength" name="Get Uniprot Seqlength">
+  <description>Get sequence length from Uniprot ID</description>
+  <command interpreter="python">get_uniprot_seqlength_0.0.5.py $input $output</command>
+  <inputs>
+    <param format="txt" name="input" type="data" label="Source file"/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+
+  <help>
+  </help>
+
+</tool>

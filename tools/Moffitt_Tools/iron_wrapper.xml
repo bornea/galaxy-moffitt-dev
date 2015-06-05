@@ -1,0 +1,26 @@
+<tool id="iron_wrapper" name="IRON">
+  <description>A portion of the IRON program specifically configured for normalizing proteomics data.</description>
+  <command interpreter="python">iron_wrapper.py $input $output</command>
+  <inputs>
+    <param format="txt" name="input" type="data" />
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <stdio>
+    <regex match="error"
+	   source="stdout"
+           level="fatal"
+           description="Unknown error"/>
+  </stdio> 
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+  <help>
+	Input is a table of data formatted as a text file (.txt). This version of IRON-Galaxy (Version 1.0.0) requires the first column of your input to contain unique identifiers. This can simply be a unique sequence of numbers or it could even be unique peptide sequences or phosphosites. The header of every column (the first row in your table of data) also needs to have a unique name. This Galaxy tool simply combines the programs "find median" and "iron_generic" from the libaffy library. For more information on libaffy and documentation, please visit: http://gene.moffitt.org/libaffy/. 
+  </help>
+</tool>

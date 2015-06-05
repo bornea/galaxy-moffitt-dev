@@ -1,0 +1,62 @@
+<tool id="idconvert_wrapper" name="Idconvert">
+  <description>Convert mass spec identification file formats.</description> 
+   <command interpreter="python">idconvert_wrapper.py $input $output $output_type
+   </command>
+  <inputs>
+    <conditional name="type">
+      <param name="input_type" type="select" label="Input Type">
+        <option value="pepxml">pepXML</option>
+        <option value="protxml">protXML</option>
+        <option value="mzid">mzid</option>
+      </param>
+      <when value="pepxml">
+        <param format="pepxml" name="input" type="data" label="Input pepXML"/>
+      </when>
+      <when value="protxml">
+        <param format="protxml" name="input" type="data" label="Input protXML"/>
+      </when>
+      <when value="mzid">
+        <param format="mzid" name="input" type="data" label="Input mzid"/>
+      </when>
+    </conditional>
+    <param name="output_type" type="select" label="Output Type">
+      <option value="mzid">mzid</option>
+      <option value="pepxml">pepXML</option>
+      <option value="text">text</option> 
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="mzid" name="output">
+      <change_format>
+        <when input="output_type" value="mzid" format="mzid"/>
+        <when input="output_type" value="pepxml" format="pepxml"/>
+        <when input="output_type" value="text" format="txt"/>
+      </change_format>
+    </data>
+  </outputs>
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+
+  <help>
+**What it does**
+
+Converts mass spec indentification file formats. 
+
+You can view the original documentation here_.
+
+.. _here: http://proteowizard.sourceforge.net/tools.shtml
+
+------
+
+**Citation**
+
+Chambers, M. C., Maclean, B., Burke, R. Amodei, D., Ruderman, D. L., Neumann, S., Mallick, P. (2012). A cross-platform toolkit for mass spectrometry and proteomics. Nature Biotechnology, 30(10), 918-920. doi:10.1038/nbt.2377
+  </help>
+
+</tool>
