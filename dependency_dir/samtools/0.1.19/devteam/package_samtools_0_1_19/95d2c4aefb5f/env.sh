@@ -1,0 +1,3 @@
+PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/samtools/0.1.19/devteam/package_samtools_0_1_19/95d2c4aefb5f/bin:$PATH; export PATH
+BAM_LIB_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/samtools/0.1.19/devteam/package_samtools_0_1_19/95d2c4aefb5f/lib; export BAM_LIB_PATH
+BAM_ROOT=/home/bornea/galaxy_moffitt_dev/dependency_dir/samtools/0.1.19/devteam/package_samtools_0_1_19/95d2c4aefb5f; export BAM_ROOT

@@ -9,9 +9,9 @@
   </outputs>
   <stdio>
     <regex match="error"
-	   source="stdout"
+	   source="stderr"
            level="fatal"
-           description="Unknown error"/>
+           description="Unknown error: Check whitespace in the input file."/>
   </stdio> 
 
   <tests>
@@ -21,6 +21,6 @@
     </test>
   </tests>
   <help>
-	Input is a table of data formatted as a text file (.txt). This version of IRON-Galaxy (Version 1.0.0) requires the first column of your input to contain unique identifiers. This can simply be a unique sequence of numbers or it could even be unique peptide sequences or phosphosites. The header of every column (the first row in your table of data) also needs to have a unique name. This Galaxy tool simply combines the programs "find median" and "iron_generic" from the libaffy library. For more information on libaffy and documentation, please visit: http://gene.moffitt.org/libaffy/. 
+	Input is a table of data formatted as a text file (.txt). This version of IRON-Galaxy (Version 1.0.0) requires the first column of your input to contain unique identifiers. This can simply be a unique sequence of numbers or it could even be unique peptide sequences or phosphosites. The header of every column (the first row in your table of data) also needs to have a unique name and no spaces. This Galaxy tool simply combines the programs "find median" and "iron_generic" from the libaffy library. For more information on libaffy and documentation, please visit: http://gene.moffitt.org/libaffy/. 
   </help>
 </tool>

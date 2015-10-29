@@ -1,0 +1,13 @@
+TCL_LIBRARY=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/libtcl8.4.so; export TCL_LIBRARY
+TK_LIBRARY=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/libtk8.4.so; export TK_LIBRARY
+R_DOC_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R/doc; export R_DOC_DIR
+R_HOME_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R; export R_HOME_DIR
+R_INCLUDE_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R/include; export R_INCLUDE_DIR
+R_SHARE_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R/share; export R_SHARE_DIR
+R_ROOT_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2; export R_ROOT_DIR
+R_HOME=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R; export R_HOME
+RHOME=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R; export RHOME
+R_LIBS=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/R/library; export R_LIBS
+PKG_CONFIG_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/pkgconfig:/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/share/pkgconfig; export PKG_CONFIG_DIR
+PKG_CONFIG_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/lib/pkgconfig:/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/share/pkgconfig; export PKG_CONFIG_PATH
+PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/bin:$PATH; export PATH

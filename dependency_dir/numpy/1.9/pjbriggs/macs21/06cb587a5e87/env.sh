@@ -1,0 +1,1 @@
+if [ -f /home/bornea/galaxy_moffitt_dev/dependency_dir/numpy/1.9/iuc/package_numpy_1_9/d6f39c80e75b/env.sh ] ; then . /home/bornea/galaxy_moffitt_dev/dependency_dir/numpy/1.9/iuc/package_numpy_1_9/d6f39c80e75b/env.sh ; fi

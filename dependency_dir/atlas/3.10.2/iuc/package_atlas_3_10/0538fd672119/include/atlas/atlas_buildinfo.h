@@ -1,0 +1,31 @@
+#ifndef ATL_INSTINFO_H
+   #define ATL_INSTINFO_H
+
+#define ATL_ARCH "x86SSE264SSE2"
+#define ATL_INSTFLAGS "-1 0 -a 1 -l 1"
+#define ATL_F2CDEFS "-DAdd_ -DF77_INTEGER=int -DStringSunStyle"
+#define ATL_ARCHDEFS "-DATL_OS_Linux -DATL_ARCH_x86SSE2 -DATL_CPUMHZ=800 -DATL_SSE2 -DATL_SSE1 -DATL_USE64BITS -DATL_GAS_x8664"
+#define ATL_DKCFLAGS "-fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_DKC "/usr/bin/c99-gcc"
+#define ATL_SKCFLAGS "-fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_SKC "/usr/bin/c99-gcc"
+#define ATL_DMCFLAGS "-fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_DMC "/usr/bin/c99-gcc"
+#define ATL_SMCFLAGS "-fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_SMC "/usr/bin/c99-gcc"
+#define ATL_ICCFLAGS "-DL2SIZE=4194304 -I/build/ATLAS/build/include -I/build/ATLAS/build/..//include -I/build/ATLAS/build/..//include/contrib -DAdd_ -DF77_INTEGER=int -DStringSunStyle -DATL_OS_Linux -DATL_ARCH_x86SSE2 -DATL_CPUMHZ=800 -DATL_SSE2 -DATL_SSE1 -DATL_USE64BITS -DATL_GAS_x8664 -m64 -DWALL -DATL_FULL_LAPACK -fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_ICC "/usr/bin/c99-gcc"
+#define ATL_F77FLAGS "-fomit-frame-pointer -mfpmath=sse -O2 -msse2 -fPIC -m64"
+#define ATL_F77 "/usr/bin/x86_64-linux-gnu-gfortran"
+#define ATL_DKCVERS "gcc (Debian 4.4.5-8) 4.4.5"
+#define ATL_SKCVERS "gcc (Debian 4.4.5-8) 4.4.5"
+#define ATL_DMCVERS "gcc (Debian 4.4.5-8) 4.4.5"
+#define ATL_SMCVERS "gcc (Debian 4.4.5-8) 4.4.5"
+#define ATL_ICCVERS "gcc (Debian 4.4.5-8) 4.4.5"
+#define ATL_F77VERS "GNU Fortran (Debian 4.4.5-8) 4.4.5"
+#define ATL_SYSINFO "Linux 37c06862ab27 3.13.0-32-generic #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014 x86_64 GNU/Linux"
+#define ATL_DATE    "Tue Jan 20 23:11:43 UTC 2015"
+#define ATL_UNAM    "root"
+#define ATL_VERS    "3.10.2"
+
+#endif

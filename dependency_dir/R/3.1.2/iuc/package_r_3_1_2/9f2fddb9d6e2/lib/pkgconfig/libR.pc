@@ -1,0 +1,10 @@
+rhome=/galaxy/builds/Linux-x86_64/install_dir/lib/R
+rlibdir=${rhome}/lib
+rincludedir=/galaxy/builds/Linux-x86_64/install_dir/lib/R/include
+
+Name: libR
+Description: R as a library
+Version: 3.1.2
+Libs: -Wl,--export-dynamic  -L/galaxy/builds/Linux-x86_64/install_dir/lib -Wl,-rpath,$ORIGIN/../lib -L${rlibdir} -lR
+Cflags: -I${rincludedir} -I${rincludedir}
+Libs.private:

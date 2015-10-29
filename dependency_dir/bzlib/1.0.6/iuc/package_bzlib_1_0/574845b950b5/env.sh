@@ -1,0 +1,10 @@
+PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/bin:$PATH; export PATH
+BZLIB_LIB_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/lib; export BZLIB_LIB_DIR
+BZLIB_INCLUDE_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/include; export BZLIB_INCLUDE_DIR
+BZLIB_SOURCE_DIR=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/source; export BZLIB_SOURCE_DIR
+LD_LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/lib:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/source:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/lib:$LIBRARY_PATH; export LIBRARY_PATH
+LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/source:$LIBRARY_PATH; export LIBRARY_PATH
+CPLUS_INCLUDE_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/include:$CPLUS_INCLUDE_PATH; export CPLUS_INCLUDE_PATH
+C_INCLUDE_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/bzlib/1.0.6/iuc/package_bzlib_1_0/574845b950b5/bzlib/include:$C_INCLUDE_PATH; export C_INCLUDE_PATH

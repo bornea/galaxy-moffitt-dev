@@ -1,0 +1,1 @@
+if [ -f /home/bornea/galaxy_moffitt_dev/dependency_dir/libtool/2.4/iuc/package_libtool_2_4/7f67694b167c/env.sh ] ; then . /home/bornea/galaxy_moffitt_dev/dependency_dir/libtool/2.4/iuc/package_libtool_2_4/7f67694b167c/env.sh ; fi

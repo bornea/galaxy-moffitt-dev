@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/home/bornea/galaxy_moffitt_dev/dependency_dir/sqlite/3.8.3/iuc/package_sqlite_3_8_3/c8a5c11cc921
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SQLite
+Description: SQL database engine
+Version: 3.8.3
+Libs: -L${libdir} -lsqlite3
+Libs.private: -ldl -lpthread 
+Cflags: -I${includedir}

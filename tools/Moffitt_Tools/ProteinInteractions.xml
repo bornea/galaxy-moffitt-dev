@@ -1,0 +1,26 @@
+<tool id="SAINT_ProteinInteractions" name="SAINT Output to Protein Interaction File">
+  <description></description>
+  <command interpreter="python">ProteinInteractions.py $input $Cytoscape_File</command>
+  <inputs>
+    <param format="txt" name="input" type="data" label="SAINT Output"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="Cytoscape_File" label="Cytoscape File"/>    
+  </outputs>
+  <stdio>
+    <regex match="error"
+	   source="stdout"
+           level="fatal"
+           description="Unknown error"/>
+  </stdio> 
+
+  <tests>
+    <test>
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+    </test>
+  </tests>
+  <help>
+    This program will read in a SAINT 'list.txt' file and the interactions from the consensus path db database and return all the interactions that we saw in our experiment in a format suitable for cytoscape. This allows us to filter before getting PPIs so that it doesn't affect our SAINT score or include interactions that don't score well
+  </help>
+</tool>

@@ -1,0 +1,11 @@
+prefix=/galaxy/builds/Linux-x86_64/install_dir
+exec_prefix=/galaxy/builds/Linux-x86_64/install_dir
+libdir=/galaxy/builds/Linux-x86_64/install_dir/lib
+includedir=/galaxy/builds/Linux-x86_64/install_dir/include
+
+Name: harfbuzz
+Description: HarfBuzz text shaping library
+Version: 0.9.32
+
+Libs: -L${libdir} -lharfbuzz
+Cflags: -I${includedir}/harfbuzz

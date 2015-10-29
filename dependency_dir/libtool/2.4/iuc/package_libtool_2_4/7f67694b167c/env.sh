@@ -1,0 +1,3 @@
+LD_LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/libtool/2.4/iuc/package_libtool_2_4/7f67694b167c/lib:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/libtool/2.4/iuc/package_libtool_2_4/7f67694b167c/bin:$PATH; export PATH
+LIBTOOL_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/libtool/2.4/iuc/package_libtool_2_4/7f67694b167c; export LIBTOOL_PATH

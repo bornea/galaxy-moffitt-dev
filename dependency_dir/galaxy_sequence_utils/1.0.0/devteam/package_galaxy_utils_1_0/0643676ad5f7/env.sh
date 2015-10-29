@@ -1,0 +1,1 @@
+PYTHONPATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/galaxy_sequence_utils/1.0.0/devteam/package_galaxy_utils_1_0/0643676ad5f7/lib/python:$PYTHONPATH; export PYTHONPATH

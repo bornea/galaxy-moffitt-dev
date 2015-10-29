@@ -1,0 +1,1 @@
+PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/ucsc_tools_for_macs21/1.0/pjbriggs/macs21/06cb587a5e87:$PATH; export PATH

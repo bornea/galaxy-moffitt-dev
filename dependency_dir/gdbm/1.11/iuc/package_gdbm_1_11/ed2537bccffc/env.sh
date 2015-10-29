@@ -1,0 +1,4 @@
+LD_LIBRARY_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/gdbm/1.11/iuc/package_gdbm_1_11/ed2537bccffc/lib:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+GDBM_ROOT_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/gdbm/1.11/iuc/package_gdbm_1_11/ed2537bccffc; export GDBM_ROOT_PATH
+C_INCLUDE_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/gdbm/1.11/iuc/package_gdbm_1_11/ed2537bccffc/include:$C_INCLUDE_PATH; export C_INCLUDE_PATH
+CPLUS_INCLUDE_PATH=/home/bornea/galaxy_moffitt_dev/dependency_dir/gdbm/1.11/iuc/package_gdbm_1_11/ed2537bccffc/include:$CPLUS_INCLUDE_PATH; export CPLUS_INCLUDE_PATH
