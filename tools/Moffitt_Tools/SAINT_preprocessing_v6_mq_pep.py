@@ -1,3 +1,4 @@
+#See other note about standardizing header and adding all authors. We can say "original script by Brent Kuenzi" to give Brent with coming up with the original version of this file.
 #######################################################################################
 # Python-code: SAINT pre-processing from maxquant "Samples Report" output
 # Author: Brent Kuenzi
@@ -14,15 +15,23 @@ import os
 
 # 1) infile: maxquant "Samples Report" output
 # 2) baitfile: SAINT formatted bait file generated in Galaxy
-# 3) prey: Y or N for generating a prey file (requires internet connection)
+# 3) fasta_db: fasta database for use (defaults to SwissProt_HUMAN_2014_08.fasta)
+# 4) prey: Y or N for generating a prey file 
+# 5) make_bait: String of bait names, assignment, and test or control boolean 
 #######################################################################################
 mq_file = sys.argv[1]
-cmd = r"Rscript /home/bornea/galaxy_moffitt_dev/tools/Moffitt_Tools/bubblebeam/pre_process_protein_name_set.R " + str(mq_file) 
+ins_path = "/home/philip/galaxy-moffitt-dev/tools/Moffitt_Tools/"
+names_path = str(ins_path) + r"uniprot_names.txt"
+cmd = r"Rscript "+ str(ins_path) +"pre_process_protein_name_set.R " + str(mq_file) + " " + str(names_path)
 os.system(cmd)
 
 infile = "./tukeys_output.txt" #maxquant "Samples Report" output
 prey = sys.argv[2] # Y or N
-make_bait= sys.argv[5]
+fasta_db = sys.argv[3]
+if fasta_db == "None":
+    fasta_db = str(ins_path)  + "SwissProt_HUMAN_2014_08.fasta"
+make_bait= sys.argv[6]
+bait_bool = sys.argv[9]
 
 def bait_create(baits, infile):
     #Takes the Bait specified by the user and makes them into a Bait file and includes a check to make sure they are using valid baits.
@@ -47,10 +56,11 @@ def bait_create(baits, infile):
                 #If the bait is in the original file then write to cache it if not exit.
                 if baits[i] in temp:
                     number_bait = temp.index(str(baits[i]))
-                    number_bait = number_bait - 9
+                    number_bait = number_bait - 9 #What's this?
                     bait_cache.append((number_bait, str(line1)))
                 else:
-                    print "Error: bad bait " + str(baits[i])
+                    print "Error: bad bait " + str(baits[i]) #Standardize messages to the user (see other comment about stdout vs stderr). Can this be more helpful like suggesting what the problem is based on what the script can't find?
+                    # AB: Sure we can do lots of stuff, this is just telling them what they typed as a bait is not found in the file as expected.
                     sys.exit()
            else: 
                 pass                    
@@ -63,7 +73,18 @@ def bait_create(baits, infile):
     bait_file_tmp.close()  
 
 
-baitfile = "bait.txt"
+if bait_bool == 'false':
+    bait_create(make_bait, infile)
+    baitfile = "bait.txt" 
+else:
+    bait_temp_file = open(sys.argv[10], 'r')
+    bait_cache = bait_temp_file.readlines()
+    bait_file_tmp = open("bait.txt", "wr")
+    for line in bait_cache:
+        bait_file_tmp.write(line)                    
+    bait_file_tmp.close()
+    baitfile = "bait.txt" 
+
 
 class ReturnValue1(object):
     def __init__(self, sequence, gene):
@@ -76,67 +97,57 @@ class ReturnValue2(object):
         self.header = getheader
 
 def main(maxquant_input, make_bait):  
-    bait_create(make_bait, infile)
-    baitfile = "bait.txt"
     #bait_check(baitfile, maxquant_input)
     make_inter(maxquant_input)
     if prey == 'true':
         make_prey(maxquant_input)
         no_error_inter(maxquant_input)
-        os.rename('prey.txt', sys.argv[4])
+        os.rename('prey.txt', sys.argv[5])
     elif prey == 'false':
         if os.path.isfile('error proteins.txt') == True:
             no_error_inter(maxquant_input)
         pass
     elif prey != 'true' or 'false':
         sys.exit("Invalid Prey Argument: Y or N")
-    os.rename('inter.txt', sys.argv[3])
-    os.rename("bait.txt", sys.argv[6])
+    os.rename('inter.txt', sys.argv[4])
+    os.rename("bait.txt", sys.argv[7])
 
 
 def get_info(uniprot_accession_in): # get aa lengths and gene name
     error = open('error proteins.txt', 'a+')
-    while True:
-        i = 0
-	try:  
-            data = urllib2.urlopen("http://www.uniprot.org/uniprot/" + uniprot_accession_in + ".fasta")
-            break
-        except urllib2.HTTPError, err:
-            i = i + 1
-            if i == 50:
-                sys.exit("More than 50 errors. Check your file or try again later.")
-            if err.code == 404:
-                error.write(uniprot_accession_in + '\t' + "Invalid URL. Check protein" + '\n')
-                seqlength = 'NA'
-                genename = 'NA'
-                return ReturnValue1(seqlength, genename)
-            elif err.code == 302:
-                sys.exit("Request timed out. Check connection and try again.")
-            else:
-                sys.exit("Uniprot had some other error")
+    data = open(fasta_db,'r')
     lines = data.readlines()
-    if lines == []:
-        error.write(uniprot_accession_in + '\t' + "Blank Fasta" + '\n')
+    db_len = len(lines)
+    seqlength = 0
+    count = 0
+    for i in lines:           
+        if ">sp" in i:
+            if uniprot_accession_in == i.split("|")[1]:
+                match = count+1
+                if 'GN=' in i:
+                    lst = i.split('GN=')
+                    lst2 = lst[1].split(' ')
+                    genename = lst2[0]
+                if 'GN=' not in i:
+                    genename = 'NA'
+                while ">sp" not in lines[match]:
+                    if match <= db_len:
+                        seqlength = seqlength + len(lines[match].strip())
+                        match = match + 1
+                    else:
+                        break
+                return ReturnValue1(seqlength, genename)
+        count = count + 1
+        
+
+    if seqlength == 0:
+        error.write(uniprot_accession_in + '\t' + "Uniprot not in Fasta" + '\n')
         error.close
         seqlength = 'NA'
         genename = 'NA'
         return ReturnValue1(seqlength, genename)
-    if lines != []:
-        seqlength = 0
-        header = lines[0]
-        for line in lines[1:]:
-            line = line.replace("\n","") # strip \n or else it gets counted in the length
-            seqlength += len(line) 
-        if 'GN=' in header:
-            lst = header.split('GN=')
-            lst2 = lst[1].split(' ')
-            genename = lst2[0]
-            error.close
-            return ReturnValue1(seqlength, genename)
-        if 'GN=' not in header:
-            genename = 'NA'
-            error.close
-            return ReturnValue1(seqlength, genename)
+
+
 def readtab(infile):
     with open(infile,'r') as x: # read in tab-delim text
         output = []
@@ -189,11 +200,11 @@ def no_error_inter(maxquant_input): # remake inter file without protein errors f
     err = readtab("error proteins.txt")
     bait = readtab(baitfile)
     data = read_maxquant(maxquant_input).data
-    header = read_maxquant(maxquant_input).header
+    header = read_maxquant(maxquant_input).header #I think this can be done in one line with multiple .replace() or maybe else statements within the comprehension?
+    # AB: remember trying and it simply would not work with one line. 
     header = [i.replace(r"\"", "") for i in header]
     header = [i.replace(r"Intensity.", r"") for i in header]
     header = [i.replace(r".", r"-") for i in header]
-    print header
     bait_index = []
     for i in bait:
         bait_index.append(header.index(i[0]))
@@ -215,7 +226,7 @@ def bait_check(bait, maxquant_input): # check that bait names share header title
     header = read_maxquant(maxquant_input).header
     for i in bait_in:
         if i[0] not in header:
-            sys.exit("Bait must share header titles with maxquant output")
+            sys.exit("Bait must share header titles with MaxQuant output")
 
 if __name__ == '__main__':
     main(infile, make_bait)

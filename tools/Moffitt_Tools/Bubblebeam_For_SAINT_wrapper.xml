@@ -1,6 +1,6 @@
 <tool id="Bubblebeam_For_SAINT" name="Bubblebeam For SAINT">
   <description></description>
-  <command interpreter="python">Bubblebeam_For_SAINT_wrapper.py $list_file $prey_file $crapome $color $label $cutoff $type $outfile $NSAF_zoom $SAINT_zoom $SAINT $NSAF </command>
+  <command interpreter="python">Bubblebeam_For_SAINT_wrapper.py $list_file $prey_file $crapome $color $label $cutoff $type $inc_file $exc_file $outfile $NSAF_zoom $SAINT_zoom $SAINT $NSAF </command>
   <inputs>
     <param type="select" name="type" label="MaxQuant or Scaffold">
       <option value="MQ">MaxQuant</option>
@@ -16,6 +16,8 @@
     </param>
     <param type="boolean" name="label" checked="true" label="Use Labels"/>
     <param type="float" name="cutoff" label="SAINT Score Cutoff" help="Select a value between 0 and 1 written like 0.8." value="0.8"/>
+    <param format="txt" name="inc_file" type="data" label="List of Uniprot IDs to Include" optional="true"/>
+    <param format="txt" name="exc_file" type="data" label="List of Uniprot IDs to Exclude" optional="true"/>
   </inputs>
   <outputs>
     <data format="txt" name="outfile" label="Outfile"/>    

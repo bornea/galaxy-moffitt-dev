@@ -2,7 +2,7 @@
   <description></description>
   <command interpreter="python">
     #if (str($type) == 'Scaffold'):
-      SAINT_preprocessing_v6.py $input $preybool $Inter_file $Prey_file 
+      SAINT_preprocessing_v6.py $input $preybool $fasta_db $Inter_file $Prey_file 
       "
         #for $ba in $bait
          ${ba.bait1}
@@ -12,7 +12,7 @@
         "
       $Bait_file
     #elif (str($type) == 'MaxQuant'):
-      SAINT_preprocessing_v6_mq_pep.py $input $preybool $Inter_file $Prey_file 
+      SAINT_preprocessing_v6_mq_pep.py $input $preybool $fasta_db $Inter_file $Prey_file 
         "
         #for $ba in $bait
           ${ba.bait1}
@@ -30,6 +30,7 @@
     </param>
     <param format="dat" name="input" type="data" label="Scaffold or MaxQuant proteinGroup Output"/>
     <param type="boolean" name="preybool" checked="true" label="Create Prey File"/>
+    <param type="data" name="fasta_db" format="fasta"  label="Provide Uniprot Fasta database" optional= "true"/>
     <repeat name="bait" title="Bait Create">
       <param name="bait1" type="text" size="100"/>
       <param name="assign" type="text" size="100"/>

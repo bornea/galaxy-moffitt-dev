@@ -38,9 +38,10 @@
     <tool file="Moffitt_Tools/maxquant_wrapper_0.1.xml" />
     <tool file="Moffitt_Tools/saint_wrapper.xml" />
     <tool file="Moffitt_Tools/iron_wrapper.xml" />
-    <tool file="Moffitt_Tools/SAINT_preprocessing_v5.xml" />
-    <tool file="Moffitt_Tools/ProteinInteractions.xml" />
+    <tool file="Moffitt_Tools/SAINT_preprocessing_v6.xml" />
+    <tool file="Moffitt_Tools/shiny_wrapper.xml" />
     <tool file="Moffitt_Tools/Bubblebeam_For_SAINT_wrapper.xml" />
+    <tool file="Moffitt_Tools/dotplot_runner.xml" />
     <tool file="macs21/macs21_wrapper.xml" />
     <tool file="macs21/Transpose.xml" />
   </section>

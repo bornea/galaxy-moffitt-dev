@@ -18,8 +18,9 @@ library(dplyr); library(tidyr); library(ggplot2)
 # 5) label: Adds gene name labels to bubbles within the "zoomed in" graphs (default = FALSE)
 # 6) cutoff: Saintscore cutoff to be assigned for filtering the "zoomed in" graphs (default = 0.8)
 ###################################################################################################
-main <- function(listfile, preyfile , crapome=FALSE, color="red", label=FALSE, cutoff=0.8, type="SC") {
+main <- function(listfile, preyfile , crapome=FALSE, color="red", label=FALSE, cutoff=0.8, type="SC", inc_file = "None", exc_file = "None" ) {
   cutoff_check(cutoff)
+  listfile <- list_type(listfile, inc_file, exc_file)
   if(type == "SC") {
     df <- merge_files_sc(listfile, preyfile, crapome)
   }
@@ -32,11 +33,36 @@ main <- function(listfile, preyfile , crapome=FALSE, color="red", label=FALSE, c
   bubble_zoom_NSAF(df, color, label, cutoff)
   write.table(df,"output.txt",sep="\t",quote=FALSE, row.names=FALSE)
 }
+
+list_type <- function(df, inc_file, exc_file) {
+  Saint <- read.delim(df, stringsAsFactors=FALSE)
+  if (inc_file != "None") {
+    if (exc_file == "None"){
+      inc_prots <- read.delim(inc_file, sep='\t', header=FALSE, stringsAsFactors=FALSE)
+      filtered_df = subset(Saint, Saint$Prey == inc_prots[,1])
+    }
+    else {
+      inc_prots <- read.delim(inc_file, sep='\t', header=FALSE, stringsAsFactors=FALSE)
+      exc_prots <- read.delim(exc_file, sep='\t', header=FALSE, stringsAsFactors=FALSE)
+      filtered_df = subset(Saint, Saint$Prey == inc_prots[,1])
+      filtered_df = subset(filtered_df, filtered_df$Prey != exc_prots[,1])
+    }
+  }
+  else if (exc_file != "None") {
+    exc_prots <- read.delim(exc_file, sep='\t', header=FALSE, stringsAsFactors=FALSE)
+    filtered_df = subset(Saint, Saint$Prey != exc_prots[,1])
+  }
+  else {
+    filtered_df = Saint
+  }
+  return(filtered_df)
+  
+}
 ###################################################################################################
 # Merge input files and caculate Crapome(%) and NSAF for each protein for each bait
 ###################################################################################################
-merge_files_mq <- function(SAINT_DF, prey_DF, crapome=FALSE) {
-  SAINT <- read.table(SAINT_DF, sep='\t', header=TRUE)
+merge_files_mq <- function(SAINT, prey_DF, crapome=FALSE) {
+  #SAINT <- read.table(SAINT_DF, sep='\t', header=TRUE)
   prey <- read.table(prey_DF, sep='\t', header=FALSE); colnames(prey) <- c("Prey", "Length", "PreyGene")
   DF <- merge(SAINT,prey)
   DF$SpecSum <- log2(DF$SpecSum)
@@ -56,8 +82,8 @@ merge_files_mq <- function(SAINT_DF, prey_DF, crapome=FALSE) {
   return(DF)
 }
 
-merge_files_sc <- function(SAINT_DF, prey_DF, crapome=FALSE) {
-  SAINT <- read.table(SAINT_DF, sep='\t', header=TRUE)
+merge_files_sc <- function(SAINT, prey_DF, crapome=FALSE) {
+  #SAINT <- read.table(SAINT_DF, sep='\t', header=TRUE)
   prey <- read.table(prey_DF, sep='\t', header=FALSE); colnames(prey) <- c("Prey", "Length", "PreyGene")
   DF <- merge(SAINT,prey)
   
@@ -200,7 +226,7 @@ cutoff_check <- function(cutoff){
 }
 
 args <- commandArgs(trailingOnly = TRUE)
-main(args[1],args[2],args[3],args[4],args[5],args[6],args[7])
+main(args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9])
 
 #main("test_list.txt", "preytest.txt", crapome="craptest.txt", color="crapome", label=TRUE)
 #main("Crizo_list.txt", "prey_cr.txt", crapome = "crizo_crap.txt", color="crapome", label=TRUE, cutoff=0.7)
