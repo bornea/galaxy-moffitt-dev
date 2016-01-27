@@ -1,1 +1,0 @@
-if [ -f /home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/env.sh ] ; then . /home/bornea/galaxy_moffitt_dev/dependency_dir/R/3.1.2/iuc/package_r_3_1_2/9f2fddb9d6e2/env.sh ; fi

@@ -35,6 +35,6 @@ for line in prey_input:
 #os.system(cmd1)
 
 with open("shiny.txt", "wt") as x:
-	x.write("<html><body> open <a href=\"http://proteomicspipeline.moffitt.usf.edu:3838/"+ str(stamped_app) + "\">Shiny Bubblebeam</a> in your browser to view shiny app. If there are issues with the sizing within galaxy you can right click and open in a new tab or window.</body></html>")
+	x.write("<html><body> open <a href=\"http://localhost:3838/"+ str(stamped_app) + "\">Shiny Bubblebeam</a> in your browser to view shiny app. If there are issues with the sizing within galaxy you can right click and open in a new tab or window.</body></html>")
 
 os.rename('shiny.txt', str(sys.argv[4]))

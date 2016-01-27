@@ -27,7 +27,7 @@ if label == "false":
 elif label == "true":
 	label = "TRUE" 
 
-cmd = r"Rscript /home/bornea/galaxy_moffitt_dev/tools/Moffitt_Tools/bubblebeam/bubbles_v9_NSAF_natural_log.R " + str(list_file) + r" " + str(prey_file) + r" " + str(crapome) + r" " + str(color) + r" " + str(label) + r" " + str(cutoff) + r" " + str(mq_sc) + r" " + str(inc_file) + r" " + str(exc_file)
+cmd = r"Rscript /galaxy-apostl-docker/tools/Moffitt_Tools/bubblebeam/bubbles_v9_NSAF_natural_log.R " + str(list_file) + r" " + str(prey_file) + r" " + str(crapome) + r" " + str(color) + r" " + str(label) + r" " + str(cutoff) + r" " + str(mq_sc) + r" " + str(inc_file) + r" " + str(exc_file)
 os.system(cmd)
 time.sleep(3)
 

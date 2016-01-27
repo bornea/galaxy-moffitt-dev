@@ -20,7 +20,7 @@ import os
 # 5) make_bait: String of bait names, assignment, and test or control boolean 
 #######################################################################################
 mq_file = sys.argv[1]
-ins_path = "/home/philip/galaxy-moffitt-dev/tools/Moffitt_Tools/"
+ins_path = "/galaxy-apostl-docker/tools/Moffitt_Tools/"
 names_path = str(ins_path) + r"uniprot_names.txt"
 cmd = r"Rscript "+ str(ins_path) +"pre_process_protein_name_set.R " + str(mq_file) + " " + str(names_path)
 os.system(cmd)

@@ -31,19 +31,13 @@
 -->
   </section>
   <label id="blank1" text="" />
-  <section id="moffittTools" name="Moffitt Tools">
-    <tool file="Moffitt_Tools/get_uniprot_seqlength_0.0.5.xml" />
-    <tool file="Moffitt_Tools/escape_excel.xml" />
-    <tool file="Moffitt_Tools/idconvert_wrapper.xml" />
-    <tool file="Moffitt_Tools/maxquant_wrapper_0.1.xml" />
+  <section id="moffittTools" name="Moffitt Tools">>
     <tool file="Moffitt_Tools/saint_wrapper.xml" />
-    <tool file="Moffitt_Tools/iron_wrapper.xml" />
     <tool file="Moffitt_Tools/SAINT_preprocessing_v6.xml" />
     <tool file="Moffitt_Tools/shiny_wrapper.xml" />
     <tool file="Moffitt_Tools/Bubblebeam_For_SAINT_wrapper.xml" />
     <tool file="Moffitt_Tools/dotplot_runner.xml" />
-    <tool file="macs21/macs21_wrapper.xml" />
-    <tool file="macs21/Transpose.xml" />
+    <tool file="Moffitt_Tools/ProteinInteractions_v2.xml" />
   </section>
   <label id="blank2" text="" />
   <section id="filter" name="Filter and Sort">
